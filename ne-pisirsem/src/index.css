@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+/* dark: önekli sınıflar <html class="dark"> olduğunda çalışır */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Renkler CSS değişkeni olarak tanımlı. Karanlık modda aşağıdaki .dark bloğu
+ * aynı değişkenleri ezer; böylece bileşenlere tek tek dark: yazmaya gerek kalmaz.
+ */
+@theme {
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-sans: 'DM Sans Variable', system-ui, sans-serif;
+
+  --color-surface: #ffffff; /* kart, input gibi yüzeyler */
+  --color-cream-50: #fffbf5; /* sayfa arka planı */
+  --color-cream-100: #fbf3e6; /* hafif dolgu */
+  --color-cream-200: #f3e4cc; /* kenarlıklar */
+  --color-ink-900: #2b1d14; /* ana metin */
+  --color-ink-700: #5a4537;
+  --color-ink-500: #8a7363;
+  --color-tomato-500: #e2532d;
+  --color-tomato-600: #c2410c;
+  --color-tomato-700: #9a330a;
+  --color-olive-500: #6b8e23;
+  --color-olive-600: #55721b;
+  --color-olive-700: #4d6618;
+  --color-olive-100: #eef3dd;
+  --color-saffron-400: #f5b83d;
+}
+
+.dark {
+  color-scheme: dark; /* select, checkbox, kaydırma çubuğu gibi yerel öğeler de koyulaşır */
+  --color-surface: #241b16;
+  --color-cream-50: #18120e;
+  --color-cream-100: #2e231c;
+  --color-cream-200: #3d2f25;
+  --color-ink-900: #f7ede2;
+  --color-ink-700: #dccbbb;
+  --color-ink-500: #a8927f;
+  --color-tomato-500: #f0703f;
+  --color-tomato-600: #d9542a;
+  --color-tomato-700: #b8431f;
+  --color-olive-500: #8fb240;
+  --color-olive-600: #b3cf73;
+  --color-olive-100: #2b3319;
+}
+
+@layer base {
+  body {
+    @apply bg-cream-50 font-sans text-ink-900 antialiased transition-colors duration-300;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+/* Tekrar kullanılan bileşen sınıfları (Tailwind v4 @utility) */
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tomato-600 disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-tomato-600 text-white shadow-sm hover:bg-tomato-700;
+}
+@utility btn-secondary {
+  @apply btn border border-cream-200 bg-surface text-ink-900 hover:border-ink-500;
+}
+@utility btn-ghost {
+  @apply btn text-ink-700 hover:bg-cream-100;
+}
+@utility btn-danger {
+  @apply btn bg-red-600 text-white hover:bg-red-700;
+}
+@utility input {
+  @apply w-full rounded-xl border border-cream-200 bg-surface px-4 py-2.5 text-sm text-ink-900 placeholder:text-ink-500 focus:border-tomato-500 focus:ring-2 focus:ring-tomato-500/20 focus:outline-none;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-semibold text-ink-700;
+}
+@utility card {
+  @apply rounded-2xl border border-cream-200 bg-surface shadow-[0_1px_0_rgba(43,29,20,0.04)];
+}
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium transition;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.25s ease-out both;
+}
