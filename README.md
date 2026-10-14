@@ -121,18 +121,10 @@ npm run preview    # derlenmiş sürümü yerelde dene
 npm run lint       # kod kontrolü
 ```
 
-## 🌐 Netlify ile Yayına Alma
+## 🌐 Netlify da Yayında
 
-**Yöntem 1 — GitHub'a bağlayarak (önerilen):**
-1. [app.netlify.com](https://app.netlify.com) → **Add new site → Import an existing project → GitHub**
-2. `ne-pisirsem` reposunu seç.
-3. Ayarlar `netlify.toml`'dan otomatik gelir (Build: `npm run build`, Publish: `dist`). **Deploy**'a bas.
-4. Her `git push` sonrası site otomatik güncellenir.
+**Uygulama Linki: https://ne-pisirsemm.netlify.app **
 
-**Yöntem 2 — Sürükle bırak:**
-`npm run build` çalıştır, oluşan `dist` klasörünü [app.netlify.com/drop](https://app.netlify.com/drop) sayfasına sürükle.
-
-> `public/_redirects` ve `netlify.toml` sayesinde `/tarifler` gibi sayfalarda yenileme yapınca 404 hatası alınmaz.
 
 ---
 
