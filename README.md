@@ -4,7 +4,7 @@ Evde yemek yapmak isteyen ama **ne yapacağına karar veremeyenler** için yemek
 Dolabındaki malzemeleri seçersin; uygulama tarifleri **en az eksik malzemeyle** yapılabilecek olandan başlayarak sıralar.
 Kendi tariflerini ekleyebilir, düzenleyebilir ve silebilirsin — tüm veriler tarayıcının **LocalStorage**'ında saklanır.
 
-> **Canlı demo:** `https://<site-adin>.netlify.app` ← Netlify'a yükledikten sonra buraya kendi linkini yaz.
+> **Canlı demo:** `(https://ne-pisirsemm.netlify.app)`
 
 ![Malzemeye göre öneri ekranı](screenshots/01-oneri.png)
 
